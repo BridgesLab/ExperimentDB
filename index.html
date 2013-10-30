@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Experimentdb : The experimentDB is a web-based application for the storage, organization and communication of experimental data with a focus on molecular biology and biochemical data. This application also stores data regarding reagents, including antibodies, constructs and other biomolecules as well as tracks the distribution of reagents. There is also some preliminary interfaces to other web resources." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Experimentdb</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/BridgesLab/ExperimentDB">View on GitHub</a>
+
+          <h1 id="project_title">Experimentdb</h1>
+          <h2 id="project_tagline">The experimentDB is a web-based application for the storage, organization and communication of experimental data with a focus on molecular biology and biochemical data. This application also stores data regarding reagents, including antibodies, constructs and other biomolecules as well as tracks the distribution of reagents. There is also some preliminary interfaces to other web resources.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/BridgesLab/ExperimentDB/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/BridgesLab/ExperimentDB/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>.. image:: <a href="https://api.travis-ci.org/davebridges/ExperimentDB.png">https://api.travis-ci.org/davebridges/ExperimentDB.png</a></p>
+
+<h1>
+<a name="experimentdb" class="anchor" href="#experimentdb"><span class="octicon octicon-link"></span></a>ExperimentDB</h1>
+
+<p>The experimentDB is a web-based application for the storage, organization and communication of experimental data with a focus on molecular biology and biochemical data. This application also stores data regarding reagents, including antibodies, constructs and other biomolecules as well as tracks the distribution of reagents. There is also some preliminary interfaces to other web resources.</p>
+
+<p>This project contains several sub-applications as described below:</p>
+
+<h2>
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h2>
+
+<p>This package defines experiments and the related data associated with them. The Experiment model is the focus of this entire project. It contains details about protocols, notes, reagents and project details. Results are associated with Experiment objects allowing for an Experiment to contain several results.</p>
+
+<h2>
+<a name="projects" class="anchor" href="#projects"><span class="octicon octicon-link"></span></a>Projects</h2>
+
+<p>The intent of this app is to co-ordinate specific projects.  Projects are intended to be large, grant-sized larger projects in the laboratory.  Subprojects are intended to be smaller,  potentially paper sized groups of experiments.  An experiment can be part of one, none or several projects or subprojects.</p>
+
+<h2>
+<a name="cloning" class="anchor" href="#cloning"><span class="octicon octicon-link"></span></a>Cloning</h2>
+
+<p>The cloning app defines the parameters for the synthesis and maintenance of constructs generated as part of an experiment.  Constructs can be generated via either cloning or mutagenesis and will result in a Cloning or Mutagenesis object respectively.</p>
+
+<h2>
+<a name="proteins" class="anchor" href="#proteins"><span class="octicon octicon-link"></span></a>Proteins</h2>
+
+<p>The proteins referenced by this application may be targets of an experiment or reagent.  This app also contains more detailed information about specific proteins, normally as accessed from public databases using either external databases or through Biopython tools.</p>
+
+<h2>
+<a name="reagents" class="anchor" href="#reagents"><span class="octicon octicon-link"></span></a>Reagents</h2>
+
+<p>The reagents app stores information about all tools used in research, most of which are defined by a particular Experiment object.  These include Primer, Cell (cell lines), Antibody, Strain, Chemical and Construct objects.  These models are abstract base classes of a superclass ReagentInfo which defines most of the common relevant information.</p>
+
+<h2>
+<a name="external" class="anchor" href="#external"><span class="octicon octicon-link"></span></a>External</h2>
+
+<p>The idea is to attribute particular models with references regarding external contacts or vendors or to link in specific references important to the experiments or projects.</p>
+
+<h2>
+<a name="datasets" class="anchor" href="#datasets"><span class="octicon octicon-link"></span></a>Datasets</h2>
+
+<p>The datasets app contains data and views for some external databases.  This may include external databases accessed directly or with a mirrored internal database.  This module is fairly research-interest specific and will likely be removed eventually.</p>
+
+<h1>
+<a name="experimentdb-installation" class="anchor" href="#experimentdb-installation"><span class="octicon octicon-link"></span></a>ExperimentDB Installation</h1>
+
+<h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>ExperimentDB requires both a database and a webserver to be set up.  Ideally, the database should be hosted separately from the webserver and ExperimentDB installation, but this is not necessary, as both can be used from the same server.  If you are using a remote server for the database, it is best to set up a user for this database that can only be accessed from the webserver.  If you want to set up several installations (ie for different users or different laboratories), you need separate databases and ExperimentDB installations for each.  You will also need to set up the webserver with different addresses for each installation.</p>
+
+<h2>
+<a name="software-dependencies" class="anchor" href="#software-dependencies"><span class="octicon octicon-link"></span></a>Software Dependencies</h2>
+
+<ol>
+<li>
+<p><strong>ExperimentDB source code</strong>.  Download from one of the following:  </p>
+
+<p>a. <a href="http://github.com/davebridges/ExperimentDB/downloads">http://github.com/davebridges/ExperimentDB/downloads</a> for the current release
+b. <a href="http://github.com/davebridges/ExperimentDB">http://github.com/davebridges/ExperimentDB</a> for the source code
+c. from pypi by entering::</p>
+
+<pre><code>pip install experimentdb
+</code></pre>
+</li>
+</ol><p>Downloading and/or unzipping will create a directory named ExperimentDB.  You can update to the newest revision at any time either using git or downloading and re-installing the newer version.  Changing or updating software versions will not alter any saved data, but you will have to update the localsettings.py file (described below).</p>
+
+<ol>
+<li>
+<strong>Python</strong>.  Requires Version 2.6, is not yet compatible with Python 3.0.  Download from Python_.</li>
+<li>
+<strong>Django</strong>.  Download from Django_.  This will be automatically installed if you installed experimentdb with pip.  This will be automatically installed if you installed experimentdb with pip.  The current version supported is Django 1.4</li>
+<li>
+<strong>Database software</strong>.  Typically MySQL is used, but PostgreSQL, Oracle or SQLite can also be used.  You also need to install the python driver for this database (unless you are using SQLite, which is internal to Python 2.5+).  For more information see Instructions_.</li>
+<li>
+<p><strong>Python Dependencies</strong> These can be automatically installed using pip with the following command from the root directory::</p>
+
+<p>pip install -r requirements.txt</p>
+</li>
+</ol><p>.. _Python: <a href="http://www.python.org/download">http://www.python.org/download</a>
+.. _Django: <a href="http://www.djangoproject.com/download/">http://www.djangoproject.com/download/</a>
+.. _Instructions: <a href="http://docs.djangoproject.com/en/dev/topics/install/database-installation">http://docs.djangoproject.com/en/dev/topics/install/database-installation</a></p>
+
+<h2>
+<a name="database-setup" class="anchor" href="#database-setup"><span class="octicon octicon-link"></span></a>Database Setup</h2>
+
+<ol>
+<li>Create a new database.  You need to record the user, password, host and database name.  Refer to the database documentation for how to do this with a specific database engine.  If you are using SQLite3, you only need to set the engine and the database name.  It is recommended to use PostgreSQL.</li>
+<li>
+<p>Go to experimentdb/localsettings_empty.py and edit the ADMINS and TIME_ZONE settings.  Change the secret key to a random sequence of letters.  Depending on your webserver you may also want to set the MEDIA_URL, LOGIN_URL and STATIC_URL settings::</p>
+
+<p>ENGINE: 'django.db.backends.sqlite3', #  Choose one of 'django.db.backends.postgresql_psycopg2','django.db.backends.postgresql', 'django.db.backends.mysql', 'django.db.backends.sqlite3', 'django.db.backends.oracle' depending on the database software used.
+NAME: database name
+USER: database user.  Unless using sqlite3
+PASSWORD: database password.  Unless using sqlite3
+HOST: database host.</p>
+</li>
+<li><p>Save this file as localsettings.py in the experimentdb directory.</p></li>
+<li>
+<p>Run the test client by going into the main directory and running the following.  There should be no errors at this point::</p>
+
+<p>python manage.py test</p>
+</li>
+<li>
+<p>ExperimentDB upgrades may involve schema changes.  We use south to control schema migrations.  To update database schema, first initial migrations must be run, shortly after installation.  If an upgrade (either via SVN or by a new download) involves a change in the database schema, errors may occur.  Look at HISTORY in the root folder to see if an upgrade invovles schema migrations.  To set up south, shortly after installation enter at the command line::</p>
+
+<p>python manage.py syncdb
+python manage.py schemamigration data --initial
+python manage.py schemamigration datasets --initial
+python manage.py schemamigration reagents --initial
+python manage.py schemamigration cloning --initial<br>
+python manage.py schemamigration sharing --initial
+python manage.py schemamigration projects --initial
+python manage.py schemamigration external --initial 
+python manage.py schemamigration proteins --initial
+python manage.py schemamigration hypotheses --initial    </p>
+</li>
+<li>
+<p>Generate the initial database tables then move the static files to the STATIC_ROOT by entering::</p>
+
+<p>python manage.py migrate --fake
+python manage.py collectstatic</p>
+</li>
+<li><p>When asked, generate an administrative superuser and set the email and password.</p></li>
+</ol><h2>
+<a name="web-server-setup" class="anchor" href="#web-server-setup"><span class="octicon octicon-link"></span></a>Web Server Setup</h2>
+
+<p>You need to set up a server to serve both the django installation and saved files.  Ideally a separate webserver would be set up to serve both the /static and /media files.  Although if it is easier you can use apache for both.  You can serve media and static files from any location on your server, just indicate this by setting STATIC_ROOT and MEDIA_ROOT in localsettings.  You can also choose to serve from a different url (rather than /media or /static) by changing the MEDIA_URL or STATIC_URL respectively.
+The preferred setup for the django files is to use Apache2 with mod_wsgi.  The following is a httpd.conf example where the code is placed in /usr/src/django/ExperimentDB::</p>
+
+<pre><code>#this is for static files (css, images and javascript)
+Alias /static /usr/src/django/ExperimentDB/experimentdb/static
+&lt;Directory /usr/src/django/ExperimentDB/experimentdb/static&gt;
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+
+#this is for media files (user uploaded files)
+Alias /media /usr/src/django/ExperimentDB/experimentdb/media
+&lt;Directory /usr/src/django/ExperimentDB/experimentdb/media&gt;
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+
+#this is for the base code serving
+WSGIScriptAlias /experimentdb /usr/src/django/ExperimentDB/apache/django.wsgi
+&lt;Directory /usr/src/django/ExperimentDB/apache&gt;
+    Order deny,allow
+    Allow from all
+&lt;/Directory&gt;
+</code></pre>
+
+<p>If you want to restrict access to these files, change the Allow from all directive to specific domains or ip addresses (for example Allow from 192.168.0.0/99 would allow from 192.168.0.0 to 192.168.0.99)</p>
+
+<h2>
+<a name="final-configuration-and-user-setup" class="anchor" href="#final-configuration-and-user-setup"><span class="octicon octicon-link"></span></a>Final Configuration and User Setup</h2>
+
+<p>Go to experimentdb/admin/auth/users/ and create users, selecting usernames, full names, password (or have the user set the password) and then choose group permissions.</p>
+
+<h2>
+<a name="future-schema-changes" class="anchor" href="#future-schema-changes"><span class="octicon octicon-link"></span></a>Future Schema Changes</h2>
+
+<p>If an app is migrated during an upgrade enter the following where "APP" is data, datasets, reagents, cloning, sharing, projects, external, proteins or hypotheses without the quotes and the "OPTIONAL DESCRIPTION" is something describing the changes, if desired::</p>
+
+<pre><code>python manage.py schemamigration "APP" "OPTIONAL DESCRIPTION" --auto
+python manage.py migrate
+</code></pre>
+
+<p>See the South documentation, or submit an issue if problems occur.  </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Experimentdb maintained by <a href="https://github.com/BridgesLab">BridgesLab</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
